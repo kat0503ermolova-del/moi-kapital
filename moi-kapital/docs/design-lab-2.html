@@ -1,0 +1,255 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Мой Капитал — варианты дизайна, заход 2</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Onest:wght@300;400;500;600;700&family=Unbounded:wght@300;400;500;600&display=swap">
+<style>
+  *{box-sizing:border-box}
+  body{margin:0;background:#E7E4E0;font-family:Inter,system-ui,sans-serif;color:#141414}
+  .wrap{max-width:1280px;margin:0 auto;padding:44px 20px 90px;display:flex;flex-direction:column;gap:70px}
+  .intro h1{font-size:30px;margin:0 0 8px;letter-spacing:-.02em} .intro p{margin:0;color:#555;max-width:72ch;line-height:1.55}
+  .opt-head{display:flex;flex-direction:column;gap:4px;margin-bottom:18px}
+  .opt-head b{font-size:22px;letter-spacing:-.015em} .opt-head span{color:#555;max-width:90ch}
+  .pair{display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:28px;align-items:start}
+  @media (max-width:1000px){.pair{grid-template-columns:1fr}.phone{justify-self:center}}
+  .desk{border-radius:20px;overflow:hidden;box-shadow:0 40px 90px -40px rgba(40,30,20,.45)}
+  .phone{width:300px;border-radius:44px;padding:10px;background:#111;box-shadow:0 40px 80px -40px rgba(0,0,0,.6)}
+  .phone .scr{border-radius:36px;overflow:hidden;height:610px;position:relative}
+  .num{font-variant-numeric:tabular-nums}
+  .lg{display:grid;place-items:center;border-radius:50%;flex:none;font-weight:700;color:#fff}
+  svg{display:block}
+
+  /* ================= D. Пудровый люкс ================= */
+  .D{--bg:#FAF6F1;--card:#FFFFFF;--ink:#1D1A17;--muted:#8B8178;--line:#EDE5DC;--gold:#B08A4E;--gold2:#D7BC86;--rose:#C9877B;--rose-soft:#F6E7E2;--up:#3F8460;--dn:#B5514A;
+     background:var(--bg);color:var(--ink);font-family:Onest,Inter,sans-serif}
+  .D .top{display:flex;align-items:center;justify-content:space-between;padding:22px 36px;border-bottom:1px solid var(--line)}
+  .D .logo{font-family:Unbounded,sans-serif;font-weight:400;font-size:15px;letter-spacing:.18em;text-transform:uppercase}
+  .D .logo b{color:var(--gold);font-weight:500}
+  .D .tabs{display:flex;gap:28px;font-size:14px;color:var(--muted)} .D .tabs .on{color:var(--ink);position:relative} .D .tabs .on::after{content:"";position:absolute;left:0;right:0;bottom:-24px;height:1.5px;background:var(--gold)}
+  .D .body{padding:36px;display:grid;grid-template-columns:1.25fr 1fr;gap:28px}
+  .D .eyebrow{font-size:11.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold)}
+  .D .big{font-family:Unbounded,sans-serif;font-weight:300;font-size:58px;letter-spacing:-.04em;line-height:1;margin:14px 0 14px}
+  .D .big small{font-size:28px;color:var(--gold);margin-left:6px}
+  .D .chip{display:inline-flex;gap:6px;align-items:center;font-size:13px;padding:6px 12px;border-radius:999px;background:var(--rose-soft);color:#8E4F45}
+  .D .card{background:var(--card);border-radius:22px;padding:24px;box-shadow:0 1px 0 var(--line),0 18px 40px -28px rgba(120,80,40,.25)}
+  .D .kpis{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--line);margin-top:26px}
+  .D .kpi{padding:18px 0 0} .D .kpi+.kpi{padding-left:20px;border-left:1px solid var(--line)}
+  .D .kpi .l{font-size:12.5px;color:var(--muted)} .D .kpi .v{font-family:Unbounded,sans-serif;font-weight:400;font-size:19px;margin-top:8px;letter-spacing:-.02em}
+  .D .pos{display:grid;grid-template-columns:38px 1fr auto;gap:14px;align-items:center;padding:13px 0;border-bottom:1px solid var(--line)} .D .pos:last-child{border:0}
+  .D .pos .n{font-weight:500} .D .pos .s{font-size:12.5px;color:var(--muted)}
+  .D .up{color:var(--up)} .D .dn{color:var(--dn)}
+  .D .ring{display:flex;align-items:center;gap:22px}
+  .D h4{margin:0 0 14px;font-weight:500;font-size:15px;display:flex;justify-content:space-between} .D h4 span{color:var(--muted);font-weight:400;font-size:13px}
+
+  /* ================= E. Стекло и шёлк ================= */
+  .E{--ink:#16141C;--muted:#6F6A7A;--up:#1F8A5B;--dn:#D2465A;
+     background:radial-gradient(60% 60% at 15% 10%,#FCE3EC 0%,transparent 60%),radial-gradient(55% 55% at 90% 15%,#F6E9D4 0%,transparent 60%),radial-gradient(70% 70% at 70% 100%,#E9E3FB 0%,transparent 60%),#F8F6F8;
+     color:var(--ink);font-family:Inter,sans-serif}
+  .E .glass{background:rgba(255,255,255,.62);backdrop-filter:blur(22px) saturate(160%);-webkit-backdrop-filter:blur(22px) saturate(160%);border:1px solid rgba(255,255,255,.85);box-shadow:0 20px 50px -30px rgba(80,50,90,.35),inset 0 1px 0 rgba(255,255,255,.9);border-radius:26px}
+  .E .shell{padding:22px;display:grid;grid-template-columns:200px 1fr;gap:22px}
+  .E .side{padding:20px 12px;display:flex;flex-direction:column;gap:4px;font-size:14px}
+  .E .side .nav{padding:10px 12px;border-radius:14px;color:var(--muted)} .E .side .on{background:#fff;color:var(--ink);font-weight:600;box-shadow:0 8px 20px -14px rgba(80,50,90,.4)}
+  .E .brand{display:flex;align-items:center;gap:10px;font-weight:700;padding:0 12px 18px}
+  .E .brand i{width:28px;height:28px;border-radius:9px;background:linear-gradient(135deg,#F2B8C6,#E8C98E)}
+  .E .main{display:flex;flex-direction:column;gap:18px;min-width:0}
+  .E .hero{padding:26px 28px 0;overflow:hidden}
+  .E .big{font-size:62px;font-weight:600;letter-spacing:-.05em;line-height:1;margin:10px 0 12px}
+  .E .big small{font-size:30px;color:#B99A6A;font-weight:500}
+  .E .chip{display:inline-flex;font-size:13px;font-weight:500;padding:6px 12px;border-radius:999px;background:rgba(31,138,91,.1);color:var(--up)}
+  .E .seg{display:inline-flex;background:rgba(255,255,255,.7);border-radius:12px;padding:3px;font-size:12.5px;gap:2px} .E .seg span{padding:5px 10px;border-radius:9px;color:var(--muted)} .E .seg .on{background:#fff;color:var(--ink);font-weight:600;box-shadow:0 2px 6px rgba(0,0,0,.06)}
+  .E .row3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+  .E .w{padding:18px 20px} .E .w .l{font-size:13px;color:var(--muted)} .E .w .v{font-size:24px;font-weight:600;letter-spacing:-.03em;margin-top:6px}
+  .E .pos{display:grid;grid-template-columns:38px 1fr auto auto;gap:14px;align-items:center;padding:12px 0;border-bottom:1px solid rgba(20,10,40,.06)} .E .pos:last-child{border:0}
+  .E .up{color:var(--up)} .E .dn{color:var(--dn)} .E .muted{color:var(--muted)}
+
+  /* ================= F. Журнал ================= */
+  .F{--bg:#FBFAF8;--ink:#0E0E0E;--muted:#7A7672;--line:#E8E4DF;--pink:#F3D3D6;--pink-ink:#9C3D4E;--gold:#A9874E;--up:#227A4E;--dn:#B6403B;
+     background:var(--bg);color:var(--ink);font-family:Onest,Inter,sans-serif}
+  .F .top{display:flex;justify-content:space-between;align-items:baseline;padding:26px 40px 0}
+  .F .mast{font-family:Unbounded,sans-serif;font-weight:600;font-size:30px;letter-spacing:-.04em}
+  .F .mast em{font-style:normal;color:var(--pink-ink)}
+  .F .issue{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted)}
+  .F .rule{height:2px;background:var(--ink);margin:16px 40px 0} .F .rule.thin{height:1px;background:var(--line);margin:0}
+  .F .nav{display:flex;gap:26px;padding:12px 40px;font-size:13.5px;color:var(--muted);border-bottom:1px solid var(--line)} .F .nav .on{color:var(--ink);font-weight:600}
+  .F .grid{display:grid;grid-template-columns:1.5fr 1fr;gap:0}
+  .F .col{padding:30px 40px} .F .col+.col{border-left:1px solid var(--line)}
+  .F .kicker{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--gold)}
+  .F .big{font-family:Unbounded,sans-serif;font-weight:500;font-size:68px;letter-spacing:-.055em;line-height:.95;margin:14px 0 10px}
+  .F .lede{font-size:17px;line-height:1.5;max-width:42ch;color:#3A3633} .F .lede b{background:var(--pink);padding:0 4px;border-radius:3px;font-weight:600;color:var(--ink)}
+  .F .figs{display:grid;grid-template-columns:repeat(3,1fr);margin-top:26px;border-top:1px solid var(--ink)}
+  .F .fig{padding:14px 14px 0 0} .F .fig .l{font-size:12px;color:var(--muted)} .F .fig .v{font-family:Unbounded,sans-serif;font-weight:500;font-size:20px;margin-top:6px;letter-spacing:-.03em}
+  .F h4{font-family:Unbounded,sans-serif;font-weight:500;font-size:14px;letter-spacing:-.01em;margin:0 0 6px}
+  .F .pos{display:grid;grid-template-columns:28px 1fr auto auto;gap:12px;align-items:baseline;padding:11px 0;border-bottom:1px solid var(--line);font-size:14.5px} .F .pos:last-child{border:0}
+  .F .pos .i{font-family:Unbounded,sans-serif;font-size:12px;color:var(--muted)}
+  .F .up{color:var(--up)} .F .dn{color:var(--dn)} .F .muted{color:var(--muted)}
+  .F .note{background:var(--pink);border-radius:16px;padding:16px 18px;font-size:14px;line-height:1.5;margin-top:18px} .F .note b{color:var(--pink-ink)}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="intro"><h1>Заход 2: три светлых варианта</h1><p>Все варианты светлые и минималистичные, с золотом и розовым. Шрифты из первой версии (Unbounded и Onest) или Inter. Каждый показан на компьютере и на телефоне. Выберите, какой ближе, или что взять из каждого.</p></div>
+
+  <!-- ================= D ================= -->
+  <section>
+    <div class="opt-head"><b>D. Пудровый люкс</b><span>Слоновая кость, тонкие золотые линии, пудрово-розовые акценты, лёгкие тонкие цифры. Как ювелирный или бьюти-бренд, только про деньги: спокойно, дорого, много воздуха.</span></div>
+    <div class="pair">
+      <div class="desk D">
+        <div class="top"><div class="logo">Мой <b>Капитал</b></div><div class="tabs"><span class="on">Обзор</span><span>Портфель</span><span>Доход</span><span>Календарь</span><span>Бюджет</span><span>Цели</span></div><div style="font-size:13px;color:var(--muted)">$ 82,89</div></div>
+        <div class="body">
+          <div>
+            <div class="eyebrow">Чистый капитал · 21 октября</div>
+            <div class="big num">2 486 320<small>₽</small></div>
+            <span class="chip">▲ 64 210 ₽ · +2,7% за месяц</span>
+            <svg viewBox="0 0 640 170" style="width:100%;height:170px;margin-top:22px">
+              <defs><linearGradient id="dg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#D7BC86" stop-opacity=".28"/><stop offset="1" stop-color="#D7BC86" stop-opacity="0"/></linearGradient></defs>
+              <line x1="0" x2="640" y1="168" y2="168" stroke="#EDE5DC"/>
+              <path d="M0,140 C70,136 110,122 170,124 S270,104 330,100 S430,84 490,70 S590,44 640,34 L640,168 L0,168 Z" fill="url(#dg)"/>
+              <path d="M0,140 C70,136 110,122 170,124 S270,104 330,100 S430,84 490,70 S590,44 640,34" fill="none" stroke="#B08A4E" stroke-width="1.6"/>
+              <circle cx="640" cy="34" r="4.5" fill="#fff" stroke="#B08A4E" stroke-width="1.6"/>
+            </svg>
+            <div class="kpis">
+              <div class="kpi"><div class="l">Инвестиции</div><div class="v num">1 642 900 ₽</div><div class="up" style="font-size:12.5px;margin-top:4px">+11,4%</div></div>
+              <div class="kpi"><div class="l">Пассивный доход</div><div class="v num">18 450 ₽</div><div style="font-size:12.5px;margin-top:4px;color:var(--muted)">в месяц</div></div>
+              <div class="kpi"><div class="l">До независимости</div><div class="v num">14,2 года</div><div style="font-size:12.5px;margin-top:4px;color:var(--muted)">11% пути</div></div>
+            </div>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:20px">
+            <div class="card">
+              <h4>Портфель <span>Т-Инвестиции · Freedom</span></h4>
+              <div class="pos"><span class="lg" style="width:38px;height:38px;background:#21A038">S</span><div><div class="n">Сбербанк</div><div class="s">80 шт · Т-Инвестиции</div></div><div class="num" style="text-align:right">24 992 ₽<div class="up" style="font-size:12.5px">+20,1%</div></div></div>
+              <div class="pos"><span class="lg" style="width:38px;height:38px;background:#1D1D1F"></span><div><div class="n">Apple</div><div class="s">4 шт · Freedom</div></div><div class="num" style="text-align:right">$958<div class="up" style="font-size:12.5px">+8,3%</div></div></div>
+              <div class="pos"><span class="lg" style="width:38px;height:38px;background:#E3B23C;color:#1D1A17">Р</span><div><div class="n">РЖД 1Р-28R</div><div class="s">13,4% к погашению · купон 26 окт</div></div><div class="num" style="text-align:right">24 600 ₽<div class="up" style="font-size:12.5px">+0,6%</div></div></div>
+            </div>
+            <div class="card ring">
+              <svg viewBox="0 0 120 120" width="110" height="110"><circle cx="60" cy="60" r="48" fill="none" stroke="#F3ECE4" stroke-width="12"/>
+                <circle cx="60" cy="60" r="48" fill="none" stroke="#B08A4E" stroke-width="12" stroke-dasharray="114 302" transform="rotate(-90 60 60)" stroke-linecap="round"/>
+                <circle cx="60" cy="60" r="48" fill="none" stroke="#C9877B" stroke-width="12" stroke-dasharray="80 302" stroke-dashoffset="-118" transform="rotate(-90 60 60)" stroke-linecap="round"/>
+                <circle cx="60" cy="60" r="48" fill="none" stroke="#D7BC86" stroke-width="12" stroke-dasharray="64 302" stroke-dashoffset="-202" transform="rotate(-90 60 60)" stroke-linecap="round"/>
+                <text x="60" y="64" text-anchor="middle" font-family="Unbounded" font-size="14" fill="#1D1A17">4 класса</text></svg>
+              <div style="display:grid;gap:8px;font-size:14px;flex:1"><div style="display:flex;justify-content:space-between"><span>Акции РФ</span><span class="num" style="color:var(--muted)">38%</span></div><div style="display:flex;justify-content:space-between"><span>Облигации</span><span class="num" style="color:var(--muted)">27%</span></div><div style="display:flex;justify-content:space-between"><span>Freedom · $</span><span class="num" style="color:var(--muted)">22%</span></div><div style="display:flex;justify-content:space-between"><span>Деньги</span><span class="num" style="color:var(--muted)">13%</span></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="phone"><div class="scr D" style="padding:46px 22px 0">
+        <div class="logo" style="font-size:12px">Мой <b>Капитал</b></div>
+        <div class="eyebrow" style="margin-top:28px">Чистый капитал</div>
+        <div class="big num" style="font-size:40px">2 486 320<small style="font-size:20px">₽</small></div>
+        <span class="chip">▲ 64 210 ₽ за месяц</span>
+        <svg viewBox="0 0 260 90" style="width:100%;height:90px;margin-top:16px"><path d="M0,75 C40,72 60,64 90,65 S150,52 180,48 S230,28 260,20 L260,90 L0,90 Z" fill="url(#dg)"/><path d="M0,75 C40,72 60,64 90,65 S150,52 180,48 S230,28 260,20" fill="none" stroke="#B08A4E" stroke-width="1.6"/></svg>
+        <div class="card" style="margin-top:18px;padding:16px 18px">
+          <div class="pos" style="grid-template-columns:32px 1fr auto"><span class="lg" style="width:32px;height:32px;background:#21A038;font-size:12px">S</span><div><div class="n">Сбербанк</div><div class="s">80 шт</div></div><div class="num up">+20%</div></div>
+          <div class="pos" style="grid-template-columns:32px 1fr auto"><span class="lg" style="width:32px;height:32px;background:#1D1D1F"></span><div><div class="n">Apple</div><div class="s">Freedom</div></div><div class="num up">+8%</div></div>
+          <div class="pos" style="grid-template-columns:32px 1fr auto"><span class="lg" style="width:32px;height:32px;background:#E3B23C;color:#1D1A17;font-size:12px">Р</span><div><div class="n">РЖД</div><div class="s">купон 26 окт</div></div><div class="num up">+1%</div></div>
+        </div>
+        <div style="position:absolute;left:12px;right:12px;bottom:14px;background:#fff;border-radius:22px;padding:12px 18px;display:flex;justify-content:space-between;font-size:11px;color:var(--muted);box-shadow:0 10px 30px -14px rgba(120,80,40,.35)"><b style="color:var(--ink);font-weight:600">Обзор</b><span>Портфель</span><span>Бюджет</span><span>Цели</span><span>Ещё</span></div>
+      </div></div>
+    </div>
+  </section>
+
+  <!-- ================= E ================= -->
+  <section>
+    <div class="opt-head"><b>E. Стекло и шёлк</b><span>Матовое стекло поверх мягкого перламутрового фона (розовый, шампань, лаванда). Крупные цифры Inter, виджеты как в iOS. Тот «пушистый» эффект, но аккуратно и дорого.</span></div>
+    <div class="pair">
+      <div class="desk E">
+        <div class="shell">
+          <aside class="glass side"><div class="brand"><i></i>Мой Капитал</div><div class="nav on">Обзор</div><div class="nav">Портфель</div><div class="nav">Пассивный доход</div><div class="nav">Календарь</div><div class="nav">Бюджет</div><div class="nav">Цели</div></aside>
+          <div class="main">
+            <div class="glass hero">
+              <div style="display:flex;justify-content:space-between;align-items:center"><span class="muted" style="font-size:14px">Чистый капитал</span><span class="seg"><span>1М</span><span>6М</span><span class="on">1Г</span><span>Всё</span></span></div>
+              <div class="big num">2 486 320<small> ₽</small></div>
+              <span class="chip">▲ 64 210 ₽ · +2,7%</span>
+              <svg viewBox="0 0 700 150" preserveAspectRatio="none" style="width:calc(100% + 56px);margin:16px -28px 0;height:150px">
+                <defs><linearGradient id="eg" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#E9A6B8"/><stop offset="1" stop-color="#C9A06A"/></linearGradient><linearGradient id="egf" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#E9A6B8" stop-opacity=".25"/><stop offset="1" stop-color="#E9A6B8" stop-opacity="0"/></linearGradient></defs>
+                <path d="M0,125 C70,120 120,104 190,106 S300,84 370,82 S480,62 550,52 S650,30 700,24 L700,150 L0,150 Z" fill="url(#egf)"/>
+                <path d="M0,125 C70,120 120,104 190,106 S300,84 370,82 S480,62 550,52 S650,30 700,24" fill="none" stroke="url(#eg)" stroke-width="3"/>
+                <line x1="550" x2="550" y1="0" y2="150" stroke="rgba(0,0,0,.12)" stroke-dasharray="3 4"/><circle cx="550" cy="52" r="6" fill="#fff" stroke="#D99AA9" stroke-width="2.5"/>
+              </svg>
+            </div>
+            <div class="row3">
+              <div class="glass w"><div class="l">Инвестиции</div><div class="v num">1 642 900 ₽</div><div class="up" style="font-size:13px;margin-top:2px">+11,4%</div></div>
+              <div class="glass w"><div class="l">Пассивный доход</div><div class="v num">18 450 ₽</div><div class="muted" style="font-size:13px;margin-top:2px">в месяц · 23% расходов</div></div>
+              <div class="glass w"><div class="l">До независимости</div><div class="v num">14,2 года</div><div style="height:6px;border-radius:9px;background:rgba(0,0,0,.06);margin-top:10px;overflow:hidden"><i style="display:block;height:100%;width:11%;background:linear-gradient(90deg,#E9A6B8,#C9A06A)"></i></div></div>
+            </div>
+            <div class="glass" style="padding:18px 22px">
+              <div style="display:flex;justify-content:space-between;margin-bottom:4px"><b>Портфель</b><span class="muted" style="font-size:13px">Т-Инвестиции · Freedom</span></div>
+              <div class="pos"><span class="lg" style="width:38px;height:38px;background:#21A038">S</span><div><b style="font-weight:600">Сбербанк</b><div class="muted" style="font-size:12.5px">80 шт</div></div><div class="num">24 992 ₽</div><div class="num up" style="width:60px;text-align:right">+20%</div></div>
+              <div class="pos"><span class="lg" style="width:38px;height:38px;background:#1D1D1F"></span><div><b style="font-weight:600">Apple</b><div class="muted" style="font-size:12.5px">Freedom · 4 шт</div></div><div class="num">$958</div><div class="num up" style="width:60px;text-align:right">+8%</div></div>
+              <div class="pos"><span class="lg" style="width:38px;height:38px;background:#D52B1E">Л</span><div><b style="font-weight:600">ЛУКОЙЛ</b><div class="muted" style="font-size:12.5px">3 шт</div></div><div class="num">21 450 ₽</div><div class="num up" style="width:60px;text-align:right">+4%</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="phone"><div class="scr E" style="padding:44px 16px 0">
+        <div style="display:flex;justify-content:space-between;align-items:center;padding:0 4px"><b>Мой Капитал</b><span class="muted" style="font-size:12px">21 окт</span></div>
+        <div class="glass" style="padding:18px 18px 0;margin-top:16px;overflow:hidden">
+          <span class="muted" style="font-size:13px">Чистый капитал</span>
+          <div class="big num" style="font-size:40px;margin:6px 0 8px">2 486 320<small style="font-size:20px"> ₽</small></div>
+          <span class="chip">▲ +2,7% за месяц</span>
+          <svg viewBox="0 0 260 80" preserveAspectRatio="none" style="width:calc(100% + 36px);margin:12px -18px 0;height:80px"><path d="M0,68 C40,65 70,56 100,57 S160,44 190,40 S240,22 260,16 L260,80 L0,80 Z" fill="url(#egf)"/><path d="M0,68 C40,65 70,56 100,57 S160,44 190,40 S240,22 260,16" fill="none" stroke="url(#eg)" stroke-width="3"/></svg>
+        </div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:10px">
+          <div class="glass w" style="padding:14px"><div class="l" style="font-size:12px">Доход</div><div class="v num" style="font-size:18px">18 450 ₽</div></div>
+          <div class="glass w" style="padding:14px"><div class="l" style="font-size:12px">Независимость</div><div class="v num" style="font-size:18px">14,2 г.</div></div>
+        </div>
+        <div class="glass" style="position:absolute;left:12px;right:12px;bottom:14px;padding:12px 18px;display:flex;justify-content:space-between;font-size:11px;color:var(--muted)"><b style="color:var(--ink)">Обзор</b><span>Портфель</span><span>Бюджет</span><span>Цели</span><span>Ещё</span></div>
+      </div></div>
+    </div>
+  </section>
+
+  <!-- ================= F ================= -->
+  <section>
+    <div class="opt-head"><b>F. Журнал о деньгах</b><span>Как обложка глянцевого журнала: крупный заголовок Unbounded, чёрные линии-разделители, розовые выделения-маркеры, золото в мелочах. Цифры рассказывают историю словами.</span></div>
+    <div class="pair">
+      <div class="desk F">
+        <div class="top"><div class="mast">Мой <em>Капитал</em></div><div class="issue">Выпуск · октябрь 2026</div></div>
+        <div class="rule"></div>
+        <div class="nav"><span class="on">Обзор</span><span>Портфель</span><span>Доход</span><span>Календарь</span><span>Бюджет</span><span>Цели</span></div>
+        <div class="grid">
+          <div class="col">
+            <div class="kicker">Чистый капитал</div>
+            <div class="big num">2 486 320 ₽</div>
+            <p class="lede">За месяц капитал вырос на <b>64 210 ₽</b>. Больше всего принесли облигации и Freedom: доллар подорожал на 3%.</p>
+            <svg viewBox="0 0 640 120" style="width:100%;height:120px;margin-top:10px">
+              <path d="M0,104 L53,100 L106,102 L160,90 L213,92 L266,80 L320,83 L373,70 L426,66 L480,58 L533,61 L586,44 L640,30" fill="none" stroke="#0E0E0E" stroke-width="1.8"/>
+              <circle cx="640" cy="30" r="5" fill="#9C3D4E"/>
+              <line x1="0" x2="640" y1="119" y2="119" stroke="#E8E4DF"/>
+            </svg>
+            <div class="figs">
+              <div class="fig"><div class="l">Инвестиции</div><div class="v num">1 642 900</div><div class="up" style="font-size:12.5px">+11,4%</div></div>
+              <div class="fig"><div class="l">Пассивный доход</div><div class="v num">18 450 ₽</div><div class="muted" style="font-size:12.5px">в месяц</div></div>
+              <div class="fig"><div class="l">До независимости</div><div class="v num">14,2 года</div><div class="muted" style="font-size:12.5px">2040</div></div>
+            </div>
+          </div>
+          <div class="col">
+            <h4>Портфель</h4>
+            <div class="rule thin" style="margin:6px 0 2px"></div>
+            <div class="pos"><span class="i">01</span><span>Сбербанк</span><span class="num">24 992 ₽</span><span class="num up">+20%</span></div>
+            <div class="pos"><span class="i">02</span><span>Apple · Freedom</span><span class="num">$958</span><span class="num up">+8%</span></div>
+            <div class="pos"><span class="i">03</span><span>ЛУКОЙЛ</span><span class="num">21 450 ₽</span><span class="num up">+4%</span></div>
+            <div class="pos"><span class="i">04</span><span>РЖД 1Р-28R</span><span class="num">24 600 ₽</span><span class="num up">+1%</span></div>
+            <div class="note"><b>На этой неделе:</b> купон РЖД 26 октября, +274 ₽. Оферта ГТЛК через 60 дней — решите заранее.</div>
+          </div>
+        </div>
+      </div>
+      <div class="phone"><div class="scr F" style="padding:44px 20px 0">
+        <div class="mast" style="font-size:22px">Мой <em>Капитал</em></div>
+        <div style="height:2px;background:#0E0E0E;margin:10px 0 18px"></div>
+        <div class="kicker">Чистый капитал</div>
+        <div class="big num" style="font-size:38px">2 486 320 ₽</div>
+        <p class="lede" style="font-size:14.5px">За месяц <b>+64 210 ₽</b>. Больше всего принесли облигации и Freedom.</p>
+        <div style="border-top:1px solid #0E0E0E;margin-top:14px">
+          <div class="pos" style="grid-template-columns:24px 1fr auto"><span class="i">01</span><span>Сбербанк</span><span class="num up">+20%</span></div>
+          <div class="pos" style="grid-template-columns:24px 1fr auto"><span class="i">02</span><span>Apple</span><span class="num up">+8%</span></div>
+          <div class="pos" style="grid-template-columns:24px 1fr auto"><span class="i">03</span><span>ЛУКОЙЛ</span><span class="num up">+4%</span></div>
+        </div>
+        <div style="position:absolute;left:0;right:0;bottom:0;border-top:1px solid #E8E4DF;background:#FBFAF8;padding:12px 22px 18px;display:flex;justify-content:space-between;font-size:11px;color:#7A7672"><b style="color:#0E0E0E">Обзор</b><span>Портфель</span><span>Бюджет</span><span>Цели</span><span>Ещё</span></div>
+      </div></div>
+    </div>
+  </section>
+</div>
+</body>
+</html>
